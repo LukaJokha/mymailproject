@@ -203,11 +203,80 @@
 
 
 
+// import React, { useContext } from "react";
+// import { NavLink, useNavigate, Outlet } from "react-router-dom";
+// import { Navbar, Container } from "react-bootstrap";
+// import { AuthContext } from "../AuthContext"; // Assuming AuthContext is defined in a separate file
+// import { axiosInstance } from "../axiosInstance"; // Assuming axiosInstance is imported from a separate file
+
+// export const Layout = () => {
+//   const { user, setUser, initialLoading } = useContext(AuthContext);
+//   const navigate = useNavigate();
+
+//   const logout = async () => {
+//     await axiosInstance.delete("/user/logout");
+//     setUser(null);
+//     navigate("/");
+//   };
+
+//   return (
+//     <>
+//       <header className="d-flex justify-content-center">
+//         <Navbar expand="lg" className="w-75 border-bottom">
+//           <Container>
+//             <NavLink to="/" className="text-decoration-none text-dark">
+//               <h3>📬 Mail</h3>
+//             </NavLink>
+//             <Navbar.Toggle aria-controls="basic-navbar-nav" />
+//             <Navbar.Collapse id="basic-navbar-nav">
+//               {initialLoading ? (
+//                 <div>Loading...</div> // Placeholder code...
+//               ) : (
+//                 <Container className="d-flex justify-content-end">
+//                   {!user ? (
+//                     <>
+//                       <NavLink to="/login" className="nav-link">
+//                         Login
+//                       </NavLink>
+//                       <NavLink to="/register" className="nav-link">
+//                         Register
+//                       </NavLink>
+//                     </>
+//                   ) : (
+//                     <>
+//                       <NavLink to="/dashboard" className="nav-link">
+//                         Dashboard
+//                       </NavLink>
+//                       <NavLink to="/profile" className="nav-link">
+//                         Profile
+//                       </NavLink>
+//                       <button onClick={logout} className="btn btn-link nav-link">
+//                         Logout
+//                       </button>
+//                     </>
+//                   )}
+//                 </Container>
+//               )}
+//             </Navbar.Collapse>
+//           </Container>
+//         </Navbar>
+//       </header>
+//       <main>
+//         {initialLoading ? (
+//           <div>Loading...</div> // Placeholder code...
+//         ) : (
+//           <Outlet />
+//         )}
+//       </main>
+//     </>
+//   );
+// };
+
 import React, { useContext } from "react";
 import { NavLink, useNavigate, Outlet } from "react-router-dom";
 import { Navbar, Container } from "react-bootstrap";
-import { AuthContext } from "../AuthContext"; // Assuming AuthContext is defined in a separate file
-import { axiosInstance } from "../axiosInstance"; // Assuming axiosInstance is imported from a separate file
+import { AuthContext } from "../AuthContext";
+import { axiosInstance } from "../axiosInstance";
 
 export const Layout = () => {
   const { user, setUser, initialLoading } = useContext(AuthContext);
@@ -230,7 +299,7 @@ export const Layout = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               {initialLoading ? (
-                <div>Loading...</div> // Placeholder code...
+                <div>Loading...</div>
               ) : (
                 <Container className="d-flex justify-content-end">
                   {!user ? (
@@ -263,7 +332,7 @@ export const Layout = () => {
       </header>
       <main>
         {initialLoading ? (
-          <div>Loading...</div> // Placeholder code...
+          <div>Loading...</div>
         ) : (
           <Outlet />
         )}

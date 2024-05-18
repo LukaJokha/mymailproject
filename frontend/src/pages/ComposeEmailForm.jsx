@@ -56,7 +56,6 @@ export const Compose = () => {
     // console.log(response.data)
     if (!response.data.message) {
       navigate(`/c/sent/${response.data.newEmail._id}`, {
-        state: { emailId: response.data.newEmail._id },
       })
     }
     setNewEmail(response.data)
